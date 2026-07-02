@@ -1,0 +1,7 @@
+# Spotify credentials
+ZunePlayer/Spotify/Config/SpotifySecrets.plist
+
+# Xcode
+DerivedData/
+*.xcuserstate
+xcuserdata/

@@ -1,25 +1,28 @@
 import SwiftUI
-import Playgrounds
-
-@main struct MyApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
+  @Environment(SpotifyAuthService.self) private var authService
+
+  var body: some View {
+    Group {
+      if authService.isAuthenticated {
+        HomeView()
+      } else {
+        LoginView()
+      }
     }
+    .background {
+      #if os(iOS)
+      SpotifyAuthWindowAccessor()
+      #endif
+    }
+    .task {
+      await authService.restoreSession()
+    }
+  }
 }
 
 #Preview {
-    ContentView()
-}
-
-#Playground {
-    _ = 1 + 2
+  ContentView()
+    .environment(SpotifyAuthService())
 }

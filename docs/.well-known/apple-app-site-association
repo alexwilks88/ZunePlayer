@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "AQ85J8XTP4.co.alexwilks.ZunePlayer",
+        "paths": ["/ZunePlayer/callback", "/ZunePlayer/callback/*"]
+      }
+    ]
+  }
+}
